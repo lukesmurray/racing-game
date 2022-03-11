@@ -3,6 +3,7 @@ import { PositionalAudio } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
 
 import type { PositionalAudio as PositionalAudioImpl } from 'three'
+import brakeUrl from '../../assets/sounds/tire-brake.mp3'
 
 import { mutation, useStore } from '../../store'
 
@@ -25,5 +26,5 @@ export const BrakeAudio = () => {
     }
   }, [brake, sound])
 
-  return <PositionalAudio ref={ref} url="/sounds/tire-brake.mp3" distance={10} />
+  return <PositionalAudio ref={ref} url={brakeUrl} distance={10} />
 }

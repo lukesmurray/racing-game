@@ -6,6 +6,8 @@ import { Box3, Matrix4, Scene, Vector2, Vector3 } from 'three'
 import type { Mesh, OrthographicCamera, Sprite, WebGLRenderTarget } from 'three'
 
 import { useStore, levelLayer } from '../store'
+import maskUrl from '../assets/textures/mask.SVG'
+import cursorUrl from '../assets/textures/cursor.SVG'
 
 const m = new Matrix4()
 const playerPosition = new Vector3()
@@ -63,8 +65,8 @@ export function Minimap({ size = 200 }): JSX.Element {
   const miniMap = useRef<Mesh>(null)
   const miniMapCamera = useRef<OrthographicCamera>(null)
   const [virtualScene] = useState(() => new Scene())
-  const mask = useTexture('textures/mask.svg')
-  const cursor = useTexture('textures/cursor.svg')
+  const mask = useTexture(maskUrl)
+  const cursor = useTexture(cursorUrl)
   const buffer = useFBO(size * 2, size * 2)
   const {
     gl,

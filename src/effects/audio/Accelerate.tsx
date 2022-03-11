@@ -6,6 +6,7 @@ import { MathUtils } from 'three'
 import type { PositionalAudio as PositionalAudioImpl } from 'three'
 
 import { mutation, useStore } from '../../store'
+import accelerateUrl from '../../assets/sounds/accelerate.mp3'
 
 const { lerp } = MathUtils
 
@@ -30,5 +31,5 @@ export const AccelerateAudio = () => {
     }
   }, [])
 
-  return <PositionalAudio ref={ref} url="/sounds/accelerate.mp3" loop distance={5} />
+  return <PositionalAudio ref={ref} url={accelerateUrl} loop distance={5} />
 }

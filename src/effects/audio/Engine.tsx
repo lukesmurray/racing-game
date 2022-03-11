@@ -9,6 +9,8 @@ import { mutation, useStore } from '../../store'
 
 const { lerp } = MathUtils
 
+import engineUrl from '../../assets/sounds/engine.mp3'
+
 export const EngineAudio = () => {
   const ref = useRef<PositionalAudioImpl>(null)
   const maxSpeed = useStore(({ vehicleConfig: { maxSpeed } }) => maxSpeed)
@@ -30,5 +32,5 @@ export const EngineAudio = () => {
     }
   }, [])
 
-  return <PositionalAudio autoplay ref={ref} url="/sounds/engine.mp3" loop distance={5} />
+  return <PositionalAudio autoplay ref={ref} url={engineUrl} loop distance={5} />
 }

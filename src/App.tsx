@@ -12,6 +12,7 @@ import { BoundingBox, Ramp, Track, Vehicle, Goal, Train, Heightmap } from './mod
 import { angularVelocity, levelLayer, position, rotation, useStore } from './store'
 import { Checkpoint, Clock, Speed, Minimap, Intro, Help, Editor, LeaderBoard, Finished, PickColor } from './ui'
 import { useToggle } from './useToggle'
+import dikhololoNight1kUrl from './assets/textures/dikhololo_night_1k.hdr'
 
 const layers = new Layers()
 layers.enable(levelLayer)
@@ -65,7 +66,7 @@ export function App() {
           </ToggledDebug>
         </Physics>
         <Track />
-        <Environment files="textures/dikhololo_night_1k.hdr" />
+        <Environment files={dikhololoNight1kUrl} />
         <ToggledMap />
         <ToggledOrbitControls />
       </Canvas>

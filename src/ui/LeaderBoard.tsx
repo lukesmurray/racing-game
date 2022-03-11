@@ -6,6 +6,9 @@ import { getScores } from '../data'
 import { useStore } from '../store'
 
 import type { SavedScore } from '../data'
+import bronzeUrl from '../assets/images/bronze.png'
+import silverUrl from '../assets/images/silver.png'
+import goldUrl from '../assets/images/gold.png'
 
 export function LeaderBoard(): JSX.Element {
   const [scores, setScores] = useState<SavedScore[]>([])
@@ -30,9 +33,9 @@ export function LeaderBoard(): JSX.Element {
 }
 
 const standingToImage: Record<1 | 2 | 3, string> = {
-  1: 'images/gold.png',
-  2: 'images/silver.png',
-  3: 'images/bronze.png',
+  1: goldUrl,
+  2: silverUrl,
+  3: bronzeUrl,
 }
 
 interface ScoreProps {

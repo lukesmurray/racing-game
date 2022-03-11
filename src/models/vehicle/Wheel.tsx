@@ -8,6 +8,8 @@ import type { CylinderProps } from '@react-three/cannon'
 import type { Mesh, MeshStandardMaterial, Object3D } from 'three'
 import type { GLTF } from 'three-stdlib'
 
+import wheelDracoUrl from '../../assets/models/wheel-draco.glb'
+
 interface WheelGLTF extends GLTF {
   nodes: {
     /* Manually typed meshes names */
@@ -27,7 +29,7 @@ interface WheelProps extends CylinderProps {
 
 export const Wheel = forwardRef<Object3D, WheelProps>(({ leftSide, ...props }, ref) => {
   const { radius } = useStore((state) => state.wheelInfo)
-  const { nodes, materials } = useGLTF('/models/wheel-draco.glb') as WheelGLTF
+  const { nodes, materials } = useGLTF(wheelDracoUrl) as WheelGLTF
   const scale = radius / 0.34
   useCompoundBody(
     () => ({

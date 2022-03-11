@@ -17,6 +17,10 @@ import { getState, setState, mutation, useStore } from '../../store'
 
 import type { Camera, Controls } from '../../store'
 
+import chassisDracoUrl from '../../assets/models/chassis-draco.glb'
+
+import crashUrl from '../../assets/sounds/crash.mp3'
+
 const { lerp } = MathUtils
 
 /*
@@ -76,7 +80,7 @@ export const Chassis = forwardRef<Object3D, PropsWithChildren<BoxProps>>(({ args
   const chassis_1 = useRef<MaterialMesh>(null!)
   const crashAudio = useRef<PositionalAudioImpl>(null!)
   const [maxSpeed] = useStore((s) => [s.vehicleConfig.maxSpeed])
-  const { nodes: n, materials: m } = useGLTF('/models/chassis-draco.glb') as ChassisGLTF
+  const { nodes: n, materials: m } = useGLTF(chassisDracoUrl) as ChassisGLTF
 
   const onCollide = useCallback(
     debounce<(e: CollideEvent) => void>((e) => {
@@ -162,7 +166,7 @@ export const Chassis = forwardRef<Object3D, PropsWithChildren<BoxProps>>(({ args
         />
       </group>
       {children}
-      <PositionalAudio ref={crashAudio} url="/sounds/crash.mp3" loop={false} distance={5} />
+      <PositionalAudio ref={crashAudio} url={crashUrl} loop={false} distance={5} />
     </group>
   )
 })
